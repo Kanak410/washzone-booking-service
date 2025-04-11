@@ -1,9 +1,9 @@
 package com.washzone.carwash.bookingservice.model;
 
-public enum Booking {
+public enum BookingStatus {
     BOOKED,
     CANCELLED,
    CONFIRMED,
-    INTIATED
+    INITIATED
 
 }
