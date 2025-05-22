@@ -10,6 +10,7 @@ import com.washzone.carwash.bookingservice.model.*;
 import com.washzone.carwash.bookingservice.repository.BookingRepository;
 import com.washzone.carwash.bookingservice.repository.CustomerRepository;
 import com.washzone.carwash.bookingservice.repository.UserRepository;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +27,8 @@ public class BookingService {
     private CustomerRepository customerRepository;
     @Autowired
     private WasherClient washerClient;
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
 
     public BookingResponseDTO createBooking(String email,BookingRequestDTO bookingRequestDTO) {
         BookingModel bookingModel = new BookingModel(bookingRequestDTO.getCarModel(), bookingRequestDTO.getCarNumber(), BookingStatus.INITIATED);
